@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" class="item-img">
         </div>
@@ -20,28 +20,11 @@ export default {
   name: 'HomeWeekend',
   data () {
     return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1602/88/bf120edeaea383.jpg_r_640x214_f8591f7b.jpg',
-        title: '欢乐长隆',
-        desc: '世界欢乐汇聚长隆'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1602/88/bf120edeaea383.jpg_r_640x214_f8591f7b.jpg',
-        title: '欢乐长隆',
-        desc: '世界欢乐汇聚长隆'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1602/88/bf120edeaea383.jpg_r_640x214_f8591f7b.jpg',
-        title: '欢乐长隆',
-        desc: '世界欢乐汇聚长隆'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1602/88/bf120edeaea383.jpg_r_640x214_f8591f7b.jpg',
-        title: '欢乐长隆',
-        desc: '世界欢乐汇聚长隆'
-      }]
+
     }
+  },
+  props: {
+    list: Array
   }
 }
 </script>
@@ -50,14 +33,13 @@ export default {
   @import '~styles/mixins.styl';
 
   .title
-    margin-top: .2rem
     line-height: .8rem
     background: #eee
     text-indent: .2rem
   .item-img-wrapper
     overflow: hidden
     height: 0
-    padding-bottom: 33.9%
+    padding-bottom: 37.09%
     .item-img
       width: 100%
   .item-info
