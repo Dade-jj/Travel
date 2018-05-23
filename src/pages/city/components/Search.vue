@@ -5,7 +5,7 @@
     </div>
     <div v-show="keyword" class="search-content">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
         <li v-show="hasNoData" class="search-item border-bottom">没有找到匹配数据</li>
       </ul>
     </div>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
+
 export default {
   name: 'CitySearch',
   data () {
@@ -46,7 +48,17 @@ export default {
   computed: {
     hasNoData () {
       return !this.list.length
-    }
+    },
+    ...mapState({
+      city: 'city'
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>
